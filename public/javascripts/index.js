@@ -76,6 +76,14 @@ function initEvents() {
         $('input[name=lastName]').val(contact.lastName);
         $('input[name=phone]').val(contact.phone);
     });
+
+    document.getElementById('search').addEventListener('input', doSearch);
+}
+
+function doSearch(ev) {
+    // var value = document.getElementById('search').value;
+    var value = this.value;
+    console.warn('please... search', value, ev);
 }
 
 // - start app
