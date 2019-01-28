@@ -83,7 +83,13 @@ function initEvents() {
 function doSearch(ev) {
     // var value = document.getElementById('search').value;
     var value = this.value;
-    console.warn('please... search', value, ev);
+    
+    var filteredContacts = globalContacts.filter(function(contact) {
+        console.log(contact.firstName, value);
+        return contact.firstName == value;
+    });
+
+    displayContacts(filteredContacts);
 }
 
 // - start app
