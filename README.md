@@ -13,7 +13,8 @@ Open [agenda.html](https://nmatei.github.io/node-agenda-web3/public/agenda.html)
     - **R**ead contacts from [contacts.json](public/data/contacts.json) file
     - **U**pdate contacts
     - **D**elete contact
-- Search contacts (TODO)
+- **Search** contacts
+    - by: firstName or lastName or phone 
 
 ## Setup
 
