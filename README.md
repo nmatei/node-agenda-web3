@@ -2,6 +2,10 @@
 
 A simple app using node & express for managing phone books
 
+## Live Preview
+
+Open [agenda.html](https://nmatei.github.io/node-agenda-web3/public/agenda.html)
+
 ## Content
 
 - **CRUD** operations:
