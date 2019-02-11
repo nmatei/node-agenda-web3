@@ -22,23 +22,21 @@ router.get('/', function(req, res, next) {
   })
 });
 
-// /contacts/delete?phone=1234
+// /contacts/delete?id=3
 router.get('/delete', function(req, res, next) {
-  var phone = req.query.phone;
+  var id = req.query.id;
 
-  var content = fs.readFileSync('public/data/contacts.json');
-  var contacts = JSON.parse(content);
-
-  var remainingContacts = contacts.filter(function(contact){
-    return contact.phone != phone;
-  });
-
-  content = JSON.stringify(remainingContacts, null, 2);
-  fs.writeFileSync('public/data/contacts.json', content);
-  
-  //res.json({success: true});
-  // TODO please redirect to agenda.html
-  res.redirect('/agenda.html');
+  pool.getConnection(function(err, connection) {
+    if(err) throw err;
+    const sql = `DELETE FROM contacts WHERE id=${id}`;
+    connection.query(sql, function(err, results) {
+      if(err) throw err;
+      console.log(results);
+      //res.json({success: true});
+      // TODO please redirect to agenda.html
+      res.redirect('/agenda.html');
+    })
+  })
 });
 
 // /contacts/create
@@ -59,27 +57,20 @@ router.post('/create', function(req, res, next) {
 
 // /contacts/update
 router.post('/update', function(req, res, next) {
-  var oldPhone = req.query.phone; // TODO id
+  var id = req.query.id;
   var firstName = req.body.firstName;
   var lastName = req.body.lastName;
   var phone = req.body.phone;
 
-  var content = fs.readFileSync('public/data/contacts.json');
-  var contacts = JSON.parse(content);
-
-  // update... (v1)
-  var contact = contacts.find(function(contact){
-    return contact.phone == oldPhone;
-  });
-  contact.firstName = firstName;
-  contact.lastName = lastName;
-  contact.phone = phone;
-  // TODO update... (v2);
-
-  content = JSON.stringify(contacts, null, 2);
-  fs.writeFileSync('public/data/contacts.json', content);
-  
-  res.json({success: true});
+  pool.getConnection(function(err, connection) {
+    if(err) throw err;
+    const sql = `UPDATE contacts SET firstName='${firstName}', lastName='${lastName}', phone='${phone}' WHERE id=${id}`;
+    connection.query(sql, function(err, results) {
+      if(err) throw err;
+      console.log(results);
+      res.json({success: true});
+    })
+  })
 });
 
 module.exports = router;
