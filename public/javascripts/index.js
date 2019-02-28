@@ -7,6 +7,11 @@ var API_URL = {
     DELETE: 'contacts/delete'
 };
 
+// if we are on demo site
+if (location.host === "nmatei.github.io") {
+    API_URL.READ = 'data/contacts.json';
+}
+
 function loadContacts() {
     $.ajax(API_URL.READ).done(function(contacts){
         console.info('contacts loaded', contacts);
