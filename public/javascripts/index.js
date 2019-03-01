@@ -8,7 +8,7 @@ var API_URL = {
 };
 
 // if we are on demo site
-if (location.host === "nmatei.github.io") {
+if (true || location.host === "nmatei.github.io") {
     API_URL.READ = 'data/contacts.json';
 }
 
@@ -44,10 +44,12 @@ function saveContact() {
 function displayContacts(contacts) {
     var rows = contacts.map(function(contact) {
         //console.log('transform contact', contact);
+        const phone = contact.phone;
+        const info = phone.indexOf('http') === 0 ? `<a target="_blank" href="${phone}">${phone.replace('https://github.com/', '')}</a>` : phone;
         return `<tr>
             <td>${contact.firstName}</td>
             <td>${contact.lastName}</td>
-            <td>${contact.phone}</td>
+            <td>${info}</td>
             <td>
                 <a href="${API_URL.DELETE}?id=${contact.id}">&#10006;</a>
                 <a href="#" class="edit" data-id="${contact.id}">&#9998;</a>
