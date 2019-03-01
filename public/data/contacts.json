@@ -1,22 +1,32 @@
 [
   {
-    "firstName": "Andreea, Daniela, Cipri",
-    "lastName": "-",
+    "firstName": "Maze Game",
+    "lastName": "Andreea, Daniela, Ciprian",
     "phone": "https://github.com/andreeaotet/maze-game-project"
   },
   {
-    "firstName": "Nicolae",
-    "lastName": "Matei",
-    "phone": "075600001"
+    "firstName": "Buget Lunar",
+    "lastName": "Dana, Daniel, Valentiu",
+    "phone": "https://github.com/domne21/buget-lunar-app"
   },
   {
-    "firstName": "Andrei",
-    "lastName": "Ille",
-    "phone": "075600007"
+    "firstName": "Fitness",
+    "lastName": "Lucian, Razvan, Mircea",
+    "phone": "https://github.com/1lucianmoldovan/node-fitness-app"
   },
   {
-    "firstName": "Lucian",
-    "lastName": "Moldovan",
-    "phone": "075200002"
+    "firstName": "JS Quiz",
+    "lastName": "Andreea, Cosmin",
+    "phone": "https://github.com/Smokyn/simple-quiz-app"
+  },
+  {
+    "firstName": "Eurofest",
+    "lastName": "Diana, Larisa",
+    "phone": "https://github.com/diagn/eurofestproject"
+  },
+  {
+    "firstName": "My Library",
+    "lastName": "Attila, Alexandra, Ionel",
+    "phone": "https://github.com/nattila12/book-app"
   }
 ]
